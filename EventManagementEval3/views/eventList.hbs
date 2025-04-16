@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Events</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f6fa;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #2f3640;
+    }
+    .event {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+    .event h3 {
+      color: #44bd32;
+    }
+    .event p {
+      font-size: 16px;
+      color: #2f3640;
+    }
+    .event .event-details {
+      margin-top: 10px;
+    }
+    .event .event-details p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>All Events</h2>
+  {{#if events.length}}
+    {{#each events}}
+      <div class="event">
+        <h3>{{this.name}}</h3>
+        <div class="event-details">
+          <p><strong>Date:</strong> {{this.date}}</p>
+          <p><strong>Time:</strong> {{this.time}}</p>
+          <p><strong>Location:</strong> {{this.location}}</p>
+          <p><strong>Description:</strong> {{this.description}}</p>
+        </div>
+      </div>
+      <div class="event">
+    <h3>{{this.name}}</h3>
+    <div class="event-details">
+        <p><strong>Date:</strong> {{this.date}}</p>
+        <p><strong>Time:</strong> {{this.time}}</p>
+        <p><strong>Location:</strong> {{this.location}}</p>
+        <p><strong>Description:</strong> {{this.description}}</p>
+
+        <!-- ✏️ Edit Button -->
+        <form action="/users/edit/{{this._id}}" method="GET" style="display:inline;">
+        <button type="submit">Edit</button>
+        </form>
+
+        <!-- 🗑️ Delete Button -->
+        <form action="/users/delete/{{this._id}}" method="POST" style="display:inline;">
+        <button type="submit" onclick="return confirm('Are you sure you want to delete this event?')">Delete</button>
+        </form>
+    </div>
+    </div>
+    {{/each}}
+  {{else}}
+    <p>No events available.</p>
+  {{/if}}
+</body>
+</html>

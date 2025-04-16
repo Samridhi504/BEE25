@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Event</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Edit Event</h2>
+    <form action="/users/update/{{user._id}}" method="POST" class="space-y-4">
+      
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Event Name</label>
+        <input type="text" name="name" value="{{user.name}}" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Date</label>
+        <input type="date" name="date" value="{{user.date}}" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Time</label>
+        <input type="time" name="time" value="{{user.time}}" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Location</label>
+        <input type="text" name="location" value="{{user.location}}" required
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Description</label>
+        <textarea name="description" required rows="3"
+                  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">{{user.description}}</textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit"
+                class="bg-green-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+          Update Event
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
